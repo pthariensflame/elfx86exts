@@ -218,7 +218,7 @@ fn main() {
 
     // Read the file
     let f = File::open(&args.path).expect("can't open object file");
-    let buf = unsafe { memmap::Mmap::map(&f).expect("can't memmap object file") };
+    let buf = unsafe { memmap2::Mmap::map(&f).expect("can't memmap object file") };
     let obj = object::File::parse(&*buf).expect("can't parse object file");
     let obj_arch = obj.architecture();
 
